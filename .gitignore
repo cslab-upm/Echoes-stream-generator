@@ -1,0 +1,5 @@
+/stations
+config.py
+*.ini
+*.log
+*.pyc
