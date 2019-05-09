@@ -195,7 +195,7 @@ def generateNoiseResources(stationName, noise_dbfs=12, force=False):
     logger.info(event_noise_paths[0])
 
     cmdLine = ['ffmpeg', '-i', event_noise_paths[0], '-f', 'segment', '-segment_time', '1',
-               '-c:a', 'libopus', os.path.join(folder_station, NOISE_FILENAME_TEMPLATE)]
+               '-c', 'copy', os.path.join(folder_station, NOISE_FILENAME_TEMPLATE)]
     ffmpeg = subprocess.Popen(cmdLine, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err = ffmpeg.communicate()
 
