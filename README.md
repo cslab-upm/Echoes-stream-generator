@@ -5,6 +5,13 @@ Contadores de Estrellas - Server Side - Echoes generator
 Requirements:
     [Liquidsoap](https://www.liquidsoap.info/)
 
+```
+    pip install psutil --user
+    pip install configparser --user
+    pip install paho-mqtt --user
+    pip install wavio --user
+```
+
 Create config.py file with:
 ```
 [ICECAST]
