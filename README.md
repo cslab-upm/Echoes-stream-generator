@@ -6,6 +6,7 @@ Requirements:
     [Liquidsoap](https://www.liquidsoap.info/)
 
 ```
+    apt install ffmpeg
     pip install psutil --user
     pip install configparser --user
     pip install paho-mqtt --user
