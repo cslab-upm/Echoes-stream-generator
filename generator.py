@@ -37,7 +37,7 @@ logger.addHandler(logHandler)
 # def parsePath(path):
 #     return os.path.expanduser(os.path.expandvars(os.path.normpath(path)))
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 config_ini = configparser.ConfigParser()
 config_ini.read(os.path.join(LOCAL_PATH, 'config.py'))
@@ -51,7 +51,7 @@ MQTT_PORT = int(config_ini['MQTT']['PORT'])
 
 LIQUIDSOAP = str(config_ini['LIQUIDSOAP']['PATH'])
 
-#------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 MQTT_TOPIC_STATIONS = "station/echoes/#"
 MQTT_TOPIC_SERVER_UP = "server/status/up"
@@ -74,11 +74,11 @@ config['STREAMING']['time'] = '1'
 NOISE_RESOURCES_LEN = 5
 
 NOISE_PLAYLIST = [
-    os.path.join(LOCAL_PATH, 'assets', 'noise-000.wav'), #parsePath("$HOME/meteor-files/noise-000.wav"),
-    os.path.join(LOCAL_PATH, 'assets', 'noise-001.wav'), #parsePath("$HOME/meteor-files/noise-001.wav"),
-    os.path.join(LOCAL_PATH, 'assets', 'noise-002.wav'), #parsePath("$HOME/meteor-files/noise-002.wav"),
-    os.path.join(LOCAL_PATH, 'assets', 'noise-003.wav'), #parsePath("$HOME/meteor-files/noise-003.wav"),
-    os.path.join(LOCAL_PATH, 'assets', 'noise-004.wav') #parsePath("$HOME/meteor-files/noise-004.wav")
+    os.path.join(LOCAL_PATH, 'assets', 'noise-000.wav'),  # parsePath("$HOME/meteor-files/noise-000.wav"),
+    os.path.join(LOCAL_PATH, 'assets', 'noise-001.wav'),  # parsePath("$HOME/meteor-files/noise-001.wav"),
+    os.path.join(LOCAL_PATH, 'assets', 'noise-002.wav'),  # parsePath("$HOME/meteor-files/noise-002.wav"),
+    os.path.join(LOCAL_PATH, 'assets', 'noise-003.wav'),  # parsePath("$HOME/meteor-files/noise-003.wav"),
+    os.path.join(LOCAL_PATH, 'assets', 'noise-004.wav')  # parsePath("$HOME/meteor-files/noise-004.wav")
 ]
 
 NOISE_FILENAME_TEMPLATE = 'noise-%03d.wav'
@@ -224,6 +224,7 @@ def generateStationResources(stationName):
     f = open(liq_file, "w+")
     f.write("#!%s\r\n" % (LIQUIDSOAP))
     f.write("set(\"log.file.path\",\"%s\")\r\n" % (log_file))
+    f.write("set(\"log.level\",0)\r\n")
 
     f.write("set(\"audio.converter.samplerate.libsamplerate.quality\",\"best\")\r\n")
     # f.write("set(\"audio.converter.samplerate.preferred\",\"libopus\")\r\n")
